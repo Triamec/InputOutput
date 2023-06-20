@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Windows.Forms;
 using Triamec.Tam.Registers;
-using Triamec.Tam.Rlid4;
+using Triamec.Tam.Rlid19;
 using Triamec.Tam.Samples.Properties;
 using Triamec.Tam.Subscriptions;
 using Triamec.Tam.UI;
@@ -26,11 +26,11 @@ namespace Triamec.Tam.Samples {
 		TamExplorerForm _tamExplorerForm;
 
 		ITamRegister<bool> _output1Register, _output2Register;
-		ITamReadonlyRegister<int> _inputsRegister;
+        ITamReadonlyRegister<bool> _input1Register, _input2Register;
 
 		IClientSubscription _listener;
 
-		int _packetValueIndex;
+		int _packet1ValueIndex, _packet2ValueIndex;
 
 		#endregion Fields
 
@@ -75,8 +75,7 @@ namespace Triamec.Tam.Samples {
 			var link = system[0][0];
 
 			// Boot the Tria-Link so that it learns about connected stations.
-			// Note that you must use Identify() when the Tria-Link adapter is an observer (see link.Adapter.Role).
-			link.Initialize();
+			link.Identify();
 
 			// Get the device from the first station in the link which has the right register type
 			_device = link.First(station => station.Device?.Register.GetType() == typeof(Register)).Device;
@@ -86,9 +85,10 @@ namespace Triamec.Tam.Samples {
 			var register = _device.Register as Register;
 
 			// cache the I/O registers
-			_output1Register = register.General.Commands.Output1;
-			_output2Register = register.General.Commands.Output2;
-			_inputsRegister = register.General.Signals.InputBits;
+			_output1Register = register.Axes[0].Commands.General.DigitalOut1;
+			_output2Register = register.Axes[0].Commands.General.DigitalOut2;
+            _input1Register = register.Axes[0].Signals.General.DigitalInputBits.DigIn1;
+			_input2Register = register.Axes[0].Signals.General.DigitalInputBits.DigIn2;
 		}
 
 		/// <summary>
@@ -124,10 +124,11 @@ namespace Triamec.Tam.Samples {
 		/// </summary>
 		/// <exception cref="TimeoutException">A timeout occurred.</exception>
 		void PollInputs() {
-			int inputBits = _inputsRegister.Read();
+			bool input1 = _input1Register.Read();
+			bool input2 = _input2Register.Read();
 
 			// update the view. See there for how to extract the bits
-			UpdateInputs(new BitVector32(inputBits));
+			UpdateInputs(input1, input2);
 		}
 
 		/// <summary>
@@ -145,10 +146,11 @@ namespace Triamec.Tam.Samples {
 				TamValue32[] packet = packets[packets.Length - 1];
 
 				// get the register value from the packet, using the previously cached index 
-				int inputBits = packet[_packetValueIndex];
+				bool input1 = packet[_packet1ValueIndex].AsBoolean;
+				bool input2 = packet[_packet2ValueIndex].AsBoolean;
 
 				// update the view. See there for how to extract the bits
-				UpdateInputs(new BitVector32(inputBits));
+				UpdateInputs(input1, input2);
 			}
 		}
 
@@ -166,11 +168,12 @@ namespace Triamec.Tam.Samples {
 				var subscriptionManager = link.SubscriptionManager;
 
 				// let the inputs register be published at a low rate of 10000 Hz / 500 = 20 Hz
-				var publisher = new Publisher(500, _inputsRegister);
-				_packetValueIndex = publisher.GetValueIndex(_inputsRegister);
+				var publisher = new Publisher(500, _input1Register, _input2Register);
+				_packet1ValueIndex = publisher.GetValueIndex(_input1Register);
+                _packet2ValueIndex = publisher.GetValueIndex(_input2Register);
 
-				// create the subsription
-				_listener = subscriptionManager.SubscribeEvent(publisher);
+                // create the subsription
+                _listener = subscriptionManager.SubscribeEvent(publisher);
 
 				// subscribe to the data stream
 				_listener.PacketSender.PacketsAvailable += OnPacketsAvailable;
@@ -203,18 +206,18 @@ namespace Triamec.Tam.Samples {
 
 		#region GUI methods
 
-		void UpdateInputs(BitVector32 inputBits) {
+		void UpdateInputs(bool input1, bool input2) {
 
 			// Controls must only be updated on the main thread
 			if (InvokeRequired) {
 
 				// Make this method called on the main thread
-				BeginInvoke(new Action<BitVector32>(UpdateInputs), inputBits);
+				BeginInvoke(new Action<bool,bool>(UpdateInputs), input1, input2);
 			} else {
-				_checkBoxInput1.Checked = inputBits[_inputBit1];
-				_checkBoxInput2.Checked = inputBits[_inputBit2];
-				_checkBoxInput3.Checked = inputBits[_inputBit3];
-				_checkBoxInput4.Checked = inputBits[_inputBit4];
+				_checkBoxInput1.Checked = input1;
+				_checkBoxInput2.Checked = input2;
+				//_checkBoxInput3.Checked = inputBits[_inputBit3];
+				//_checkBoxInput4.Checked = inputBits[_inputBit4];
 			}
 		}
 
