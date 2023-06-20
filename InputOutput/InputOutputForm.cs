@@ -148,9 +148,11 @@ namespace Triamec.Tam.Samples {
 				// get the register value from the packet, using the previously cached index 
 				bool input1 = packet[_packet1ValueIndex].AsBoolean;
 				bool input2 = packet[_packet2ValueIndex].AsBoolean;
+				input1 = (bool)_input1Register.ConvertRawValue(_packet1ValueIndex, packet);
+                input2 = (bool)_input2Register.ConvertRawValue(_packet1ValueIndex, packet);
 
-				// update the view. See there for how to extract the bits
-				UpdateInputs(input1, input2);
+                // update the view. See there for how to extract the bits
+                UpdateInputs(input1, input2);
 			}
 		}
 
