@@ -4,6 +4,9 @@
 
 The InputOutput sample is a .NET Windows Forms application demonstrating how to read inputs to and write outputs from your devices using the Triamec Advanced Motion (TAM) Software.
 
+For the inputs two different methods are shown: Polling and cyclic subscription via a listener. Due to Windows Timer limitations, the polling event runs up to 100Hz, while the listening up to 10kHz.
+
+
 **Check the respective Hardware Manual for the input and output limits at https://www.triamec.com/en/documents.html**
 
 *Caution: you may harm your hardware when executing sample applications
