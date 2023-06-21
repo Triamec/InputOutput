@@ -4,6 +4,10 @@
 
 The InputOutput sample is a .NET Windows Forms application demonstrating how to read inputs to and write outputs from your devices using the Triamec Advanced Motion (TAM) Software.
 
+For the inputs two different methods are shown: Polling and cyclic subscription via a listener. 
+Due to Windows Timer limitations, the polling event runs at up to 100Hz, while the listening event can reach 10kHz.
+
+
 **Check the respective Hardware Manual for the input and output limits at https://www.triamec.com/en/documents.html**
 
 *Caution: you may harm your hardware when executing sample applications
@@ -11,12 +15,12 @@ without adjusting configuration values to your hardware environment.
 Please read and follow the recommendations below
 before executing any sample application.*
 
-![TAM Acquisition](./doc/Screenshot_InputOutput.png)
+<img source="./doc/Screenshot_InputOutput.png" width="50%" height="50%">
 
 ## Hardware Prerequisites
 
 - *Triamec* drive with a voltage source to apply voltage to at least one input (power supply and switch) and at least one possibility to verify voltage at the output (LED, multimeter etc.)
-- Connection to the drive by *Tria-Link* (via PCI adapter), *USB* or *Ethernet*
+- Connection to the drive by *Tria-Link* via PCI adapter (built-in or by USB)
 
 ## Hardware Configuration Adjustment
 
@@ -41,4 +45,4 @@ In addition you need [TAM Software](https://www.triamec.com/en/tam-software-supp
 
 - Click **Output 1** and **Output 2** to toggle between high and low state of the respective output 
 - Apply voltage to Input 1 or Input 2 to change the state of the respective input box in the GUI
-- Switch between **Poll** and **Event** to update the Input states periodically or on an event triggered by any edge on the input signal
+- Switch between **Poll** and **Listen** to update the Input states
