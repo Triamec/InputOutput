@@ -4,6 +4,8 @@
 
 The InputOutput sample is a .NET Windows Forms application demonstrating how to read inputs to and write outputs from your devices using the Triamec Advanced Motion (TAM) Software.
 
+**Check the respective Hardware Manual for the input and output limits at https://www.triamec.com/en/documents.html**
+
 *Caution: you may harm your hardware when executing sample applications
 without adjusting configuration values to your hardware environment.
 Please read and follow the recommendations below
@@ -13,7 +15,7 @@ before executing any sample application.*
 
 ## Hardware Prerequisites
 
-- *Triamec* drive with a motor and encoder connected and configured with a stable position controller
+- *Triamec* drive with a voltage source to apply voltage to at least one input (power supply and switch) and at least one possibility to verify voltage at the output (LED, multimeter etc.)
 - Connection to the drive by *Tria-Link* (via PCI adapter), *USB* or *Ethernet*
 
 ## Hardware Configuration Adjustment
