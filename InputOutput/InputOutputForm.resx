@@ -131,7 +131,7 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="exitMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 22</value>
+    <value>93, 22</value>
   </data>
   <data name="exitMenuItem.Text" xml:space="preserve">
     <value>&amp;Exit</value>
@@ -303,37 +303,37 @@
   <data name="&gt;&gt;radioButtonPoll.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="radioButtonListen.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="radioButtonEvent.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
-  <data name="radioButtonListen.AutoSize" type="System.Boolean, mscorlib">
+  <data name="radioButtonEvent.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="radioButtonListen.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="radioButtonEvent.Location" type="System.Drawing.Point, System.Drawing">
     <value>147, 214</value>
   </data>
-  <data name="radioButtonListen.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="radioButtonEvent.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 17</value>
   </data>
-  <data name="radioButtonListen.TabIndex" type="System.Int32, mscorlib">
+  <data name="radioButtonEvent.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="radioButtonListen.Text" xml:space="preserve">
-    <value>&amp;Listen</value>
+  <data name="radioButtonEvent.Text" xml:space="preserve">
+    <value>&amp;Event</value>
   </data>
-  <data name="radioButtonListen.ToolTip" xml:space="preserve">
+  <data name="radioButtonEvent.ToolTip" xml:space="preserve">
     <value>Update the input indicators by getting change events from the device.</value>
   </data>
-  <data name="&gt;&gt;radioButtonListen.Name" xml:space="preserve">
-    <value>radioButtonListen</value>
+  <data name="&gt;&gt;radioButtonEvent.Name" xml:space="preserve">
+    <value>radioButtonEvent</value>
   </data>
-  <data name="&gt;&gt;radioButtonListen.Type" xml:space="preserve">
+  <data name="&gt;&gt;radioButtonEvent.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;radioButtonListen.Parent" xml:space="preserve">
+  <data name="&gt;&gt;radioButtonEvent.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;radioButtonListen.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;radioButtonEvent.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="_checkBoxInput1.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
