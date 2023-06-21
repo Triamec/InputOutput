@@ -15,7 +15,7 @@ without adjusting configuration values to your hardware environment.
 Please read and follow the recommendations below
 before executing any sample application.*
 
-<img source="./doc/Screenshot_InputOutput.png" width="50%" height="50%">
+<img src="./doc/Screenshot_InputOutput.png" width="50%" height="50%">
 
 ## Hardware Prerequisites
 
