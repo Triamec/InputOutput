@@ -11,7 +11,7 @@ without adjusting configuration values to your hardware environment.
 Please read and follow the recommendations below
 before executing any sample application.*
 
-![TAM Acquisition](./doc/Acquisition_Movement.png)
+![TAM Acquisition](./doc/Screenshot_InputOutput.png)
 
 ## Hardware Prerequisites
 
@@ -35,17 +35,10 @@ In addition you need [TAM Software](https://www.triamec.com/en/tam-software-supp
 
 ## Run the *Acquisition* Application
 
-1. Open the `Acquisition.sln`.
-2. Open the `AcquisitionForm.cs` (view code)
-3. Set the name of the axis for `AxisName`. Double check it in the register *Axes[].Information.AxisName* using the *TAM System Explorer*.
-4. Set the name of the network interface card for `NicName`. You can find this name using the *TAM System Explorer*. In the example below, `NicName = "Ethernet 2"`.
-
-![TAM Acquisition](./doc/Network_NicName.png)
-
-5. Set `_moveAxis` to `true` if you want to use the trigger for the acquisition
-6. Select the correct connection to the drive by using comment/uncomment for setting the `access` variable 
+1. Start `InputOutput.sln`.
 
 ## Operate the *Acquisition* Application
 
-- Use the slider **Trigger** to adjust the velocity needed to start the acquisition. If `_moveAxis` is set to `false`, **Trigger** is ignored (continuous acquisition)
-- Use the slider **Recording time** to adjust the length of the acquisition
+- Click **Output 1** and **Output 2** to toggle between high and low state of the respective output 
+- Apply voltage to Input 1 or Input 2 to change the state of the respective input box in the GUI
+- Switch between **Poll** and **Event** to update the Input states periodically or on an event triggered by any edge on the input signal
