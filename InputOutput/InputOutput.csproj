@@ -67,7 +67,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <Content Include="Properties\App.ico" />
-    <Content Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

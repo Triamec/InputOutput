@@ -10,11 +10,6 @@ Due to Windows Timer limitations, the polling event runs at up to 100Hz, while t
 
 **Check the respective Hardware Manual for the input and output limits at https://www.triamec.com/en/documents.html**
 
-*Caution: you may harm your hardware when executing sample applications
-without adjusting configuration values to your hardware environment.
-Please read and follow the recommendations below
-before executing any sample application.*
-
 <img src="./doc/Screenshot_InputOutput.png" width="50%" height="50%">
 
 ## Hardware Prerequisites
@@ -29,7 +24,7 @@ please make sure you test the I/Os of the correct device.
 
 Depending on the product, another register layout may be present. If it is another than the expected,
 the program will crash. You can change the expected ID by changing the using statement at the top of the
-InputOutputForm.cs source file (using Triamec.Tam.Rlid19).
+`InputOutputForm.cs` source file (`using Triamec.Tam.Rlid19`).
 
 ## Software Prerequisites
 
@@ -37,11 +32,11 @@ This project is made and built with [Microsoft Visual Studio](https://visualstud
 
 In addition you need [TAM Software](https://www.triamec.com/en/tam-software-support.html) installation.
 
-## Run the *Acquisition* Application
+## Run the *InputOutput* Application
 
 1. Start `InputOutput.sln`.
 
-## Operate the *Acquisition* Application
+## Operate the *InputOutput* Application
 
 - Click **Output 1** and **Output 2** to toggle between high and low state of the respective output 
 - Apply voltage to Input 1 or Input 2 to change the state of the respective input box in the GUI

@@ -290,10 +290,6 @@ namespace Triamec.Tam.Samples {
 				// Create the TAM system explorer as a child window.
 				_tamExplorerForm = new TamExplorerForm {
 
-					// Skip loading the TAM configuration when the explorer opens
-					// because we already did this ourselves.
-					AutoLoadTamConfiguration = false,
-
 					// Tell the TAM system explorer the business object to work with.
 					Topology = _topology
 				};
