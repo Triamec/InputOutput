@@ -131,13 +131,13 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="exitMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 22</value>
+    <value>230, 54</value>
   </data>
   <data name="exitMenuItem.Text" xml:space="preserve">
     <value>&amp;Exit</value>
   </data>
   <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 20</value>
+    <value>87, 140</value>
   </data>
   <data name="fileToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;File</value>
@@ -149,13 +149,13 @@
     <value>False</value>
   </metadata>
   <data name="explorerMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 22</value>
+    <value>463, 54</value>
   </data>
   <data name="explorerMenuItem.Text" xml:space="preserve">
     <value>&amp;TAM System Explorer</value>
   </data>
   <data name="viewToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
+    <value>106, 140</value>
   </data>
   <data name="viewToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;View</value>
@@ -163,8 +163,12 @@
   <data name="menuStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="menuStrip.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>16, 5, 0, 5</value>
+  </data>
   <data name="menuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>292, 24</value>
+    <value>1948, 150</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menuStrip.TabIndex" type="System.Int32, mscorlib">
@@ -191,7 +195,6 @@
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>126, 17</value>
   </metadata>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="_checkBoxOutput1.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
     <value>Button</value>
   </data>
@@ -199,10 +202,13 @@
     <value>Verdana, 14.25pt, style=Bold, Italic</value>
   </data>
   <data name="_checkBoxOutput1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 29</value>
+    <value>48, 69</value>
+  </data>
+  <data name="_checkBoxOutput1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 7, 8, 7</value>
   </data>
   <data name="_checkBoxOutput1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 50</value>
+    <value>328, 119</value>
   </data>
   <data name="_checkBoxOutput1.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -238,10 +244,13 @@
     <value>NoControl</value>
   </data>
   <data name="_checkBoxOutput2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>147, 29</value>
+    <value>392, 69</value>
+  </data>
+  <data name="_checkBoxOutput2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 7, 8, 7</value>
   </data>
   <data name="_checkBoxOutput2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 50</value>
+    <value>328, 119</value>
   </data>
   <data name="_checkBoxOutput2.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -277,10 +286,13 @@
     <value>NoControl</value>
   </data>
   <data name="radioButtonPoll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 175</value>
+    <value>48, 417</value>
+  </data>
+  <data name="radioButtonPoll.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 7, 8, 7</value>
   </data>
   <data name="radioButtonPoll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 17</value>
+    <value>100, 36</value>
   </data>
   <data name="radioButtonPoll.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -310,16 +322,19 @@
     <value>True</value>
   </data>
   <data name="radioButtonEvent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>147, 175</value>
+    <value>392, 417</value>
+  </data>
+  <data name="radioButtonEvent.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 7, 8, 7</value>
   </data>
   <data name="radioButtonEvent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 17</value>
+    <value>320, 90</value>
   </data>
   <data name="radioButtonEvent.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
   <data name="radioButtonEvent.Text" xml:space="preserve">
-    <value>&amp;Event</value>
+    <value>&amp;Listen</value>
   </data>
   <data name="radioButtonEvent.ToolTip" xml:space="preserve">
     <value>Update the input indicators by getting change events from the device.</value>
@@ -349,10 +364,13 @@
     <value>NoControl</value>
   </data>
   <data name="_checkBoxInput1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 102</value>
+    <value>48, 243</value>
+  </data>
+  <data name="_checkBoxInput1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 7, 8, 7</value>
   </data>
   <data name="_checkBoxInput1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 50</value>
+    <value>328, 119</value>
   </data>
   <data name="_checkBoxInput1.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -388,10 +406,13 @@
     <value>NoControl</value>
   </data>
   <data name="_checkBoxInput2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>147, 102</value>
+    <value>392, 243</value>
+  </data>
+  <data name="_checkBoxInput2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 7, 8, 7</value>
   </data>
   <data name="_checkBoxInput2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 50</value>
+    <value>328, 119</value>
   </data>
   <data name="_checkBoxInput2.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -421,10 +442,10 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>16, 31</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>292, 208</value>
+    <value>779, 496</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -973,8 +994,8 @@
         /gB//wAA///+AP//AAD///wA//8AAP//+AH//wAA///4A///AAD///+H//8AAA==
 </value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 7, 8, 7</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>TAM I/O Demo</value>

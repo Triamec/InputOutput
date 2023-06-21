@@ -62,6 +62,7 @@ namespace Triamec.Tam.Samples {
             // 
             // menuStrip
             // 
+            menuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             menuStrip.ImageScalingSize = new System.Drawing.Size(40, 40);
             menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             fileToolStripMenuItem,

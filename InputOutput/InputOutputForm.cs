@@ -1,7 +1,6 @@
 ﻿// Copyright © 2011 Triamec Motion AG
 
 using System;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Windows.Forms;
 using Triamec.Tam.Registers;
@@ -9,7 +8,6 @@ using Triamec.Tam.Rlid19;
 using Triamec.Tam.Samples.Properties;
 using Triamec.Tam.Subscriptions;
 using Triamec.Tam.UI;
-using Triamec.TriaLink;
 
 namespace Triamec.Tam.Samples {
 	/// <summary>
@@ -17,8 +15,6 @@ namespace Triamec.Tam.Samples {
 	/// </summary>
 	internal partial class InputOutputForm : Form {
 		#region Fields
-		readonly int _inputBit1, _inputBit2, _inputBit3, _inputBit4;
-
 		TamTopology _topology;
 
 		ITamDevice _device;
@@ -29,11 +25,7 @@ namespace Triamec.Tam.Samples {
         ITamReadonlyRegister<bool> _input1Register, _input2Register;
         ITamReadonlyRegister<uint> _inputsRegister;
 
-
         IClientSubscription _listener;
-		IClientSubscription _eventSubscription;
-
-		int _packet1ValueIndex, _packet2ValueIndex;
 
 		#endregion Fields
 
@@ -43,10 +35,6 @@ namespace Triamec.Tam.Samples {
 		/// </summary>
 		public InputOutputForm() {
 			InitializeComponent();
-
-			// create input bit masks
-			_inputBit1 = BitVector32.CreateMask();
-			_inputBit2 = BitVector32.CreateMask(_inputBit1);
 		}
 		#endregion Constructor
 
@@ -143,11 +131,11 @@ namespace Triamec.Tam.Samples {
         }
 
         /// <summary>
-        /// Creates the listener subscription.
+        /// Creates a listener as a cyclic subscription. The listener creates only half the traffic on the bus compared to polling.
         /// </summary>
         /// <exception cref="SubscriptionException">Could not set the listener down.</exception>
         void SetupEventSubscription() {
-            if (_eventSubscription == null) {
+            if (_listener == null) {
 
                 // navigate upwards
                 TamLink link = _device.Station.Link;
@@ -155,25 +143,22 @@ namespace Triamec.Tam.Samples {
                 // subscriptions are organized within the link
                 ISubscriptionManager subscriptionManager = link.SubscriptionManager;
 
-                // let the inputs register be published at a rate of 10000 Hz / 2 = 5000 Hz
-                IPublisher publisher = new Publisher(2, _inputsRegister);
+				// let the inputs register be published at a rate of 10000 Hz / 2 = 5000 Hz
+				ushort downsampling = 2;
+                IPublisher publisher = new Publisher(downsampling, _inputsRegister);
 
                 // create the subscription
-                _eventSubscription = subscriptionManager.SubscribeEvent(publisher);
+                _listener = subscriptionManager.SubscribeEvent(publisher);
 
                 // subscribe to the data stream
-                _eventSubscription.PacketSender.PacketsAvailable += OnEvent;
-
-                // create the trigger
-                PublicationCommand triggerCondition = PublicationCommand.AnyEdge;
-				ISubscribable trigger = new UIntToIntSubscribable(_inputsRegister);
-				TamValue32 triggerLevel = 0;
+                _listener.PacketSender.PacketsAvailable += OnEvent;
 
                 // Enable the subscription.
-                _eventSubscription.Enable(triggerCondition, trigger, triggerLevel);
+                _listener.Enable();
             }
         }
 
+		/*
 		class UIntToIntSubscribable : ISubscribable {
             readonly ISubscribable _uintSubscribable;
 
@@ -189,6 +174,7 @@ namespace Triamec.Tam.Samples {
 
 			Type ISubscribable.ValueType => typeof(int);
         }
+		*/
 
 		/// <summary>
 		/// Dissolves the listener subscription.
