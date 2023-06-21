@@ -15,7 +15,7 @@ without adjusting configuration values to your hardware environment.
 Please read and follow the recommendations below
 before executing any sample application.*
 
-![TAM Acquisition](./doc/Screenshot_InputOutput.png)
+<img source="./doc/Screenshot_InputOutput.png" width="50%" height="50%">
 
 ## Hardware Prerequisites
 
