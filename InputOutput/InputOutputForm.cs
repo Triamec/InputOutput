@@ -27,8 +27,11 @@ namespace Triamec.Tam.Samples {
 
 		ITamRegister<bool> _output1Register, _output2Register;
         ITamReadonlyRegister<bool> _input1Register, _input2Register;
+        ITamReadonlyRegister<uint> _inputsRegister;
 
-		IClientSubscription _listener;
+
+        IClientSubscription _listener;
+		IClientSubscription _eventSubscription;
 
 		int _packet1ValueIndex, _packet2ValueIndex;
 
@@ -87,6 +90,7 @@ namespace Triamec.Tam.Samples {
 			// cache the I/O registers
 			_output1Register = register.Axes[0].Commands.General.DigitalOut1;
 			_output2Register = register.Axes[0].Commands.General.DigitalOut2;
+			_inputsRegister = register.Axes[0].Signals.General.DigitalInputBits;
             _input1Register = register.Axes[0].Signals.General.DigitalInputBits.DigIn1;
 			_input2Register = register.Axes[0].Signals.General.DigitalInputBits.DigIn2;
 		}
@@ -131,6 +135,7 @@ namespace Triamec.Tam.Samples {
 			UpdateInputs(input1, input2);
 		}
 
+		/*
 		/// <summary>
 		/// Called when new data from the listener subscription gets available. Updates the view as appropriate.
 		/// </summary>
@@ -155,12 +160,71 @@ namespace Triamec.Tam.Samples {
                 UpdateInputs(input1, input2);
 			}
 		}
+		*/
 
-		/// <summary>
-		/// Creates the listener subscription.
-		/// </summary>
-		/// <exception cref="SubscriptionException">Could not set the listener down.</exception>
-		void SetupListener() {
+        void OnEvent(object sender, EventArgs e) {
+
+            bool input1 = _input1Register.Read();
+            bool input2 = _input2Register.Read();
+
+            // update the view. See there for how to extract the bits
+            UpdateInputs(input1, input2);
+        }
+
+        /// <summary>
+        /// Creates the listener subscription.
+        /// </summary>
+        /// <exception cref="SubscriptionException">Could not set the listener down.</exception>
+        void SetupEventSubscription() {
+            if (_eventSubscription == null) {
+
+                // navigate upwards
+                TamLink link = _device.Station.Link;
+
+                // subscriptions are organized within the link
+                ISubscriptionManager subscriptionManager = link.SubscriptionManager;
+
+                // let the inputs register be published at a rate of 10000 Hz / 2 = 5000 Hz
+                IPublisher publisher = new Publisher(2, _inputsRegister);
+
+                // create the subscription
+                _eventSubscription = subscriptionManager.SubscribeEvent(publisher);
+
+                // subscribe to the data stream
+                _eventSubscription.PacketSender.PacketsAvailable += OnEvent;
+
+                // create the trigger
+                PublicationCommand triggerCondition = PublicationCommand.AnyEdge;
+				ISubscribable trigger = new UIntToIntSubscribable(_inputsRegister);
+				TamValue32 triggerLevel = 0;
+
+                // Enable the subscription.
+                _eventSubscription.Enable(triggerCondition, trigger, triggerLevel);
+            }
+        }
+
+		class UIntToIntSubscribable : ISubscribable {
+            readonly ISubscribable _uintSubscribable;
+
+            public UIntToIntSubscribable(ISubscribable uintSubscribable) {
+                _uintSubscribable = uintSubscribable;
+            }
+
+            TamStation ISubscribable.Station => _uintSubscribable.Station;
+
+            uint ISubscribable.Offset => _uintSubscribable.Offset;
+
+            uint ISubscribable.Size => _uintSubscribable.Size;
+
+			Type ISubscribable.ValueType => typeof(int);
+        }
+
+		/*
+        /// <summary>
+        /// Creates the listener subscription.
+        /// </summary>
+        /// <exception cref="SubscriptionException">Could not set the listener down.</exception>
+        void SetupListener() {
 			if (_listener == null) {
 
 				// navigate upwards
@@ -184,6 +248,7 @@ namespace Triamec.Tam.Samples {
 				_listener.Enable();
 			}
 		}
+		*/
 
 		/// <summary>
 		/// Dissolves the listener subscription.
@@ -274,7 +339,8 @@ namespace Triamec.Tam.Samples {
 			} else {
 				timer.Stop();
 				try {
-					SetupListener();
+					//SetupListener();
+					SetupEventSubscription();
 				} catch (SubscriptionException ex) {
 					MessageBox.Show(ex.Message, Resources.ListenerSetupErrorCaption, MessageBoxButtons.OK,
 						MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, 0);
