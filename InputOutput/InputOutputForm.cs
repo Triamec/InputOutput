@@ -47,8 +47,6 @@ namespace Triamec.Tam.Samples {
 			// create input bit masks
 			_inputBit1 = BitVector32.CreateMask();
 			_inputBit2 = BitVector32.CreateMask(_inputBit1);
-			_inputBit3 = BitVector32.CreateMask(_inputBit2);
-			_inputBit4 = BitVector32.CreateMask(_inputBit3);
 		}
 		#endregion Constructor
 
@@ -135,33 +133,6 @@ namespace Triamec.Tam.Samples {
 			UpdateInputs(input1, input2);
 		}
 
-		/*
-		/// <summary>
-		/// Called when new data from the listener subscription gets available. Updates the view as appropriate.
-		/// </summary>
-		void OnPacketsAvailable(object sender, EventArgs e) {
-
-			// Get all available raw packets.
-			// The values are transported as raw TamValue32 structures
-			// allowing to interpret them AsInt32, AsSingle or AsBoolean.
-			TamValue32[][] packets = _listener.PacketSender.Dequeue();
-
-			if (packets.Length > 0) {
-				// only consider most recent packet in case of multiple packets
-				TamValue32[] packet = packets[packets.Length - 1];
-
-				// get the register value from the packet, using the previously cached index 
-				bool input1 = packet[_packet1ValueIndex].AsBoolean;
-				bool input2 = packet[_packet2ValueIndex].AsBoolean;
-				input1 = (bool)_input1Register.ConvertRawValue(_packet1ValueIndex, packet);
-                input2 = (bool)_input2Register.ConvertRawValue(_packet1ValueIndex, packet);
-
-                // update the view. See there for how to extract the bits
-                UpdateInputs(input1, input2);
-			}
-		}
-		*/
-
         void OnEvent(object sender, EventArgs e) {
 
             bool input1 = _input1Register.Read();
@@ -219,37 +190,6 @@ namespace Triamec.Tam.Samples {
 			Type ISubscribable.ValueType => typeof(int);
         }
 
-		/*
-        /// <summary>
-        /// Creates the listener subscription.
-        /// </summary>
-        /// <exception cref="SubscriptionException">Could not set the listener down.</exception>
-        void SetupListener() {
-			if (_listener == null) {
-
-				// navigate upwards
-				var link = _device.Station.Link;
-
-				// subscriptions are organized within the link
-				var subscriptionManager = link.SubscriptionManager;
-
-				// let the inputs register be published at a low rate of 10000 Hz / 500 = 20 Hz
-				var publisher = new Publisher(500, _input1Register, _input2Register);
-				_packet1ValueIndex = publisher.GetValueIndex(_input1Register);
-                _packet2ValueIndex = publisher.GetValueIndex(_input2Register);
-
-                // create the subsription
-                _listener = subscriptionManager.SubscribeEvent(publisher);
-
-				// subscribe to the data stream
-				_listener.PacketSender.PacketsAvailable += OnPacketsAvailable;
-
-				// Enable the subscription.
-				_listener.Enable();
-			}
-		}
-		*/
-
 		/// <summary>
 		/// Dissolves the listener subscription.
 		/// </summary>
@@ -283,8 +223,6 @@ namespace Triamec.Tam.Samples {
 			} else {
 				_checkBoxInput1.Checked = input1;
 				_checkBoxInput2.Checked = input2;
-				//_checkBoxInput3.Checked = inputBits[_inputBit3];
-				//_checkBoxInput4.Checked = inputBits[_inputBit4];
 			}
 		}
 
