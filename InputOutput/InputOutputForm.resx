@@ -183,7 +183,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStrip.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>6</value>
   </data>
   <metadata name="toolTip.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -226,7 +226,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_checkBoxOutput1.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>5</value>
   </data>
   <data name="_checkBoxOutput2.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
     <value>Button</value>
@@ -277,7 +277,7 @@
     <value>NoControl</value>
   </data>
   <data name="radioButtonPoll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 214</value>
+    <value>18, 175</value>
   </data>
   <data name="radioButtonPoll.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 17</value>
@@ -310,7 +310,7 @@
     <value>True</value>
   </data>
   <data name="radioButtonEvent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>147, 214</value>
+    <value>147, 175</value>
   </data>
   <data name="radioButtonEvent.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 17</value>
@@ -373,7 +373,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_checkBoxInput1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>4</value>
   </data>
   <data name="_checkBoxInput2.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
     <value>Button</value>
@@ -412,84 +412,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_checkBoxInput2.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="_checkBoxInput4.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
-    <value>Button</value>
-  </data>
-  <data name="_checkBoxInput4.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="_checkBoxInput4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 14.25pt, style=Bold, Italic</value>
-  </data>
-  <data name="_checkBoxInput4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="_checkBoxInput4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>147, 158</value>
-  </data>
-  <data name="_checkBoxInput4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 50</value>
-  </data>
-  <data name="_checkBoxInput4.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="_checkBoxInput4.Text" xml:space="preserve">
-    <value>Input 4</value>
-  </data>
-  <data name="_checkBoxInput4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;_checkBoxInput4.Name" xml:space="preserve">
-    <value>_checkBoxInput4</value>
-  </data>
-  <data name="&gt;&gt;_checkBoxInput4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_checkBoxInput4.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_checkBoxInput4.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="_checkBoxInput3.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
-    <value>Button</value>
-  </data>
-  <data name="_checkBoxInput3.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="_checkBoxInput3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 14.25pt, style=Bold, Italic</value>
-  </data>
-  <data name="_checkBoxInput3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="_checkBoxInput3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 158</value>
-  </data>
-  <data name="_checkBoxInput3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 50</value>
-  </data>
-  <data name="_checkBoxInput3.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="_checkBoxInput3.Text" xml:space="preserve">
-    <value>Input 3</value>
-  </data>
-  <data name="_checkBoxInput3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;_checkBoxInput3.Name" xml:space="preserve">
-    <value>_checkBoxInput3</value>
-  </data>
-  <data name="&gt;&gt;_checkBoxInput3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_checkBoxInput3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_checkBoxInput3.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <metadata name="timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -502,7 +424,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>292, 243</value>
+    <value>292, 208</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1050,6 +972,9 @@
         AAD/8AAAD/8AAP//wAAf/wAA//+AAB//AAD//wAAH/8AAP//AAA//wAA//4AAD//AAD//8AAf/8AAP//
         /gB//wAA///+AP//AAD///wA//8AAP//+AH//wAA///4A///AAD///+H//8AAA==
 </value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>TAM I/O Demo</value>

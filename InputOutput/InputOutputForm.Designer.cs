@@ -48,8 +48,6 @@ namespace Triamec.Tam.Samples {
             this._checkBoxOutput2 = new System.Windows.Forms.CheckBox();
             this._checkBoxInput1 = new System.Windows.Forms.CheckBox();
             this._checkBoxInput2 = new System.Windows.Forms.CheckBox();
-            this._checkBoxInput4 = new System.Windows.Forms.CheckBox();
-            this._checkBoxInput3 = new System.Windows.Forms.CheckBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             menuStrip = new System.Windows.Forms.MenuStrip();
             fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -143,18 +141,6 @@ namespace Triamec.Tam.Samples {
             this._checkBoxInput2.Name = "_checkBoxInput2";
             this._checkBoxInput2.UseVisualStyleBackColor = true;
             // 
-            // _checkBoxInput4
-            // 
-            resources.ApplyResources(this._checkBoxInput4, "_checkBoxInput4");
-            this._checkBoxInput4.Name = "_checkBoxInput4";
-            this._checkBoxInput4.UseVisualStyleBackColor = true;
-            // 
-            // _checkBoxInput3
-            // 
-            resources.ApplyResources(this._checkBoxInput3, "_checkBoxInput3");
-            this._checkBoxInput3.Name = "_checkBoxInput3";
-            this._checkBoxInput3.UseVisualStyleBackColor = true;
-            // 
             // timer
             // 
             this.timer.Enabled = true;
@@ -168,8 +154,6 @@ namespace Triamec.Tam.Samples {
             this.Controls.Add(radioButtonEvent);
             this.Controls.Add(radioButtonPoll);
             this.Controls.Add(this._checkBoxOutput2);
-            this.Controls.Add(this._checkBoxInput3);
-            this.Controls.Add(this._checkBoxInput4);
             this.Controls.Add(this._checkBoxInput2);
             this.Controls.Add(this._checkBoxInput1);
             this.Controls.Add(this._checkBoxOutput1);
@@ -189,8 +173,6 @@ namespace Triamec.Tam.Samples {
 		private System.Windows.Forms.CheckBox _checkBoxOutput2;
 		private System.Windows.Forms.CheckBox _checkBoxInput1;
 		private System.Windows.Forms.CheckBox _checkBoxInput2;
-		private System.Windows.Forms.CheckBox _checkBoxInput4;
-		private System.Windows.Forms.CheckBox _checkBoxInput3;
 		private System.Windows.Forms.Timer timer;
 	}
 }
