@@ -134,7 +134,7 @@ namespace Triamec.Tam.Samples {
         /// Creates a listener as a cyclic subscription. The listener creates only half the traffic on the bus compared to polling.
         /// </summary>
         /// <exception cref="SubscriptionException">Could not set the listener down.</exception>
-        void SetupEventSubscription() {
+        void SetupListener() {
             if (_listener == null) {
 
                 // navigate upwards
@@ -157,24 +157,6 @@ namespace Triamec.Tam.Samples {
                 _listener.Enable();
             }
         }
-
-		/*
-		class UIntToIntSubscribable : ISubscribable {
-            readonly ISubscribable _uintSubscribable;
-
-            public UIntToIntSubscribable(ISubscribable uintSubscribable) {
-                _uintSubscribable = uintSubscribable;
-            }
-
-            TamStation ISubscribable.Station => _uintSubscribable.Station;
-
-            uint ISubscribable.Offset => _uintSubscribable.Offset;
-
-            uint ISubscribable.Size => _uintSubscribable.Size;
-
-			Type ISubscribable.ValueType => typeof(int);
-        }
-		*/
 
 		/// <summary>
 		/// Dissolves the listener subscription.
@@ -263,8 +245,7 @@ namespace Triamec.Tam.Samples {
 			} else {
 				timer.Stop();
 				try {
-					//SetupListener();
-					SetupEventSubscription();
+					SetupListener();
 				} catch (SubscriptionException ex) {
 					MessageBox.Show(ex.Message, Resources.ListenerSetupErrorCaption, MessageBoxButtons.OK,
 						MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, 0);
