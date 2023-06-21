@@ -20,7 +20,7 @@ before executing any sample application.*
 ## Hardware Prerequisites
 
 - *Triamec* drive with a voltage source to apply voltage to at least one input (power supply and switch) and at least one possibility to verify voltage at the output (LED, multimeter etc.)
-- Connection to the drive by *Tria-Link* (via PCI adapter), *USB* or *Ethernet*
+- Connection to the drive by *Tria-Link* via PCI adapter (built-in or by USB)
 
 ## Hardware Configuration Adjustment
 
@@ -45,4 +45,4 @@ In addition you need [TAM Software](https://www.triamec.com/en/tam-software-supp
 
 - Click **Output 1** and **Output 2** to toggle between high and low state of the respective output 
 - Apply voltage to Input 1 or Input 2 to change the state of the respective input box in the GUI
-- Switch between **Poll** and **Event** to update the Input states periodically or on an event triggered by any edge on the input signal
+- Switch between **Poll** and **Listen** to update the Input states
