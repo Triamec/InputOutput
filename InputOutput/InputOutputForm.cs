@@ -274,8 +274,7 @@ namespace Triamec.Tam.Samples {
         void OnExplorerMenuItemClick(object sender, EventArgs e) {
             var menuItem = (ToolStripMenuItem)sender;
 
-            FormClosedEventHandler onExplorerClosed = null;
-            onExplorerClosed = (s, a) => {
+            void onExplorerClosed(object s, FormClosedEventArgs a) {
 
                 // uncheck the menu item whenever the form is closed
                 menuItem.Checked = false;
@@ -283,7 +282,7 @@ namespace Triamec.Tam.Samples {
                 var form = (Form)s;
                 form.Dispose();
                 form.FormClosed -= onExplorerClosed;
-            };
+            }
 
             if ((_tamExplorerForm == null) || _tamExplorerForm.IsDisposed) {
 
